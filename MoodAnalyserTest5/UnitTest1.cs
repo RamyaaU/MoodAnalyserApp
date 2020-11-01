@@ -6,6 +6,9 @@ namespace MoodAnalyserTest5
     [TestClass]
     public class UnitTest1
     {
+        /// <summary>
+        /// Givens the sad message when analysed should return sad mood.
+        /// </summary>
         [TestMethod]
         public void GivenSadMessage_WhenAnalysed_ShouldReturnSadMood()
         {
@@ -16,6 +19,10 @@ namespace MoodAnalyserTest5
             //Assert
             Assert.AreEqual("Sad", mood);
         }
+
+        /// <summary>
+        /// Givens the happy message when analysed should return happy mood.
+        /// </summary>
         [TestMethod]
         public void GivenHappyMessage_WhenAnalysed_ShouldReturnHappyMood()
         {
@@ -26,6 +33,10 @@ namespace MoodAnalyserTest5
             //Assert
             Assert.AreEqual("Happy", mood);
         }
+
+        /// <summary>
+        /// Givens the empty mood when analysed should throw mood analysis exception indicating empty mood.
+        /// </summary>
         [TestMethod]
         public void GivenEmptyMood_WhenAnalysed_ShouldThrowMoodAnalysisExceptionIndicatingEmptyMood()
         {
@@ -40,6 +51,10 @@ namespace MoodAnalyserTest5
                 Assert.AreEqual("Mood should not be empty", e.Message);
             }
         }
+
+        /// <summary>
+        /// Givens the null mood when analysed should throw mood analysis exception indicating null mood.
+        /// </summary>
         [TestMethod]
         public void GivenNULLMood_WhenAnalysed_ShouldThrowMoodAnalysisExceptionIndicatingNULLMood()
         {
@@ -54,6 +69,10 @@ namespace MoodAnalyserTest5
                 Assert.AreEqual("Mood should not be null", e.Message);
             }
         }
+
+        /// <summary>
+        /// Givens the mood analyser class name when analysed should return mood analyser object.
+        /// </summary>
         [TestMethod]
         public void GivenMoodAnalyserClassName_WhenAnalysed_ShouldReturn_MoodAnalyserObject()
         {
@@ -61,6 +80,10 @@ namespace MoodAnalyserTest5
             object actual = MoodAnalyserFactory.MoodAnalyseObjectCreation("MoodAnalyserApp.MoodAnalyser", "MoodAnalyser");
             Assert.AreEqual(expected.GetType(), actual.GetType());
         }
+
+        /// <summary>
+        /// Givens the improper class name when analyse should throw mood analysis exception.
+        /// </summary>
         [TestMethod]
         public void GivenImproperClassName_WhenAnalyse_ShouldThrowMoodAnalysisException()
         {
@@ -74,6 +97,10 @@ namespace MoodAnalyserTest5
                 Assert.AreEqual("No such class found", e.Message);
             }
         }
+
+        /// <summary>
+        /// Givens the improper constructor name when analyse should throw mood analysis exception.
+        /// </summary>
         [TestMethod]
         public void GivenImproperConstructorName_WhenAnalyse_ShouldThrowMoodAnalysisException()
         {
@@ -87,6 +114,10 @@ namespace MoodAnalyserTest5
                 Assert.AreEqual("Constructor not found", e.Message);
             }
         }
+
+        /// <summary>
+        /// Givens the mood analyser when analysed using parameterized constructor should return mood analyser object.
+        /// </summary>
         [TestMethod]
         public void GivenMoodAnalyser_WhenAnalysed_UsingParameterizedConstructor_ShouldReturnMoodAnalyserObject()
         {
@@ -94,6 +125,10 @@ namespace MoodAnalyserTest5
             object actual = MoodAnalyserFactory.CreateObjectOfMoodAnalyserUsingParameterizedConstructor("MoodAnalyserApp.MoodAnalyser", "MoodAnalyser", "Happy");
             Assert.AreEqual(expected.GetType(), actual.GetType());
         }
+
+        /// <summary>
+        /// Givens the improper class name when analyse using parameterised constructor should throw mood analysis exception.
+        /// </summary>
         [TestMethod]
         public void GivenImproperClassName_WhenAnalyse_UsingParameterisedConstructor_ShouldThrowMoodAnalysisException()
         {
@@ -107,6 +142,10 @@ namespace MoodAnalyserTest5
                 Assert.AreEqual("No such class found", e.Message);
             }
         }
+
+        /// <summary>
+        /// Givens the improper constructor name when analyse using parameterised constructor should throw mood analysis exception.
+        /// </summary>
         [TestMethod]
         public void GivenImproperConstructorName_WhenAnalyse_UsingParameterisedConstructor_ShouldThrowMoodAnalysisException()
         {
@@ -120,6 +159,10 @@ namespace MoodAnalyserTest5
                 Assert.AreEqual("Constructor not found", e.Message);
             }
         }
+
+        /// <summary>
+        /// Givens the mood analyser without message when analysed using parameterized constructor should return mood analyser object.
+        /// </summary>
         [TestMethod]
         public void GivenMoodAnalyserWithoutMessage_WhenAnalysed_UsingParameterizedConstructor_ShouldReturnMoodAnalyserObject()
         {
@@ -127,6 +170,10 @@ namespace MoodAnalyserTest5
             object actual = MoodAnalyserFactory.CreateObjectOfMoodAnalyserUsingParameterizedConstructor("MoodAnalyserApp.MoodAnalyser", "MoodAnalyser");
             Assert.AreEqual(expected.GetType(), actual.GetType());
         }
+
+        /// <summary>
+        /// Givens the happy message should return happy mood.
+        /// </summary>
         [TestMethod]
         public void GivenHappyMessage_ShouldReturnHappyMood()
         {
@@ -134,6 +181,10 @@ namespace MoodAnalyserTest5
             string result = MoodAnalyserReflector.InvokeAnalyseMood("Happy", "AnalyseMood");
             Assert.AreEqual(expected, result);
         }
+
+        /// <summary>
+        /// Givens the improper method should throw mood analyser custom exception.
+        /// </summary>
         [TestMethod]
         public void GivenImproperMethod_ShouldThrowMoodAnalyserCustomException()
         {
